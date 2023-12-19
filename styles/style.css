@@ -110,10 +110,15 @@ button {
     --font-title: Fraunces;
 
     --clr-white: hsl(0, 0%, 100%);
+    --clr-soft-red: hsl(7, 99%, 70%);
     --clr-yellow: hsl(51, 100%, 49%);
-    --clr-grayish-blue: hsl(232, 10%, 55%);
-    --clr-text-dark: hsl(212, 27%, 19%);
-    --clr-text-main: hsl(213, 9%, 39%);
+    --clr-grayish-blue: hsl(210, 4%, 67%);
+    --clr-dark-grayish-blue: hsl(232, 10%, 55%);
+    --clr-very-dark-grayish-blue: hsl(213, 9%, 39%);
+    --clr-very-dark-desaturated-blue: hsl(212, 27%, 19%);
+
+    --clr-text-dark: var(--clr-very-dark-desaturated-blue);
+    --clr-text-main: var(--clr-dark-grayish-blue);
     --clr-text-design: hsl(167, 40%, 24%);
     --clr-text-photography: hsl(198, 62%, 26%);
     --clr-footer: hsl(168, 34%, 41%);
@@ -124,12 +129,14 @@ button {
 body {
     font-size: 1.125rem;
     font-family: var(--font-paragraph);
+    line-height: 1.7;
     color: var(--clr-text-main);
 }
 
 h1, h2, h3 {
     font-family: var(--font-title);
     font-weight: 700;
+    line-height: 1.2;
     color: var(--clr-text-dark);
 }
 
@@ -304,7 +311,6 @@ header {
     text-transform: uppercase;
     text-align: center;
     letter-spacing: .18em;
-    line-height: 1.2;
     color: var(--clr-white);
 }
 
@@ -373,5 +379,57 @@ header {
     .header-arrow {
         margin: 5.75rem auto 0;
     }
+}
 
+
+/* ============================================
+    ABOUT
+=============================================== */
+
+.about-image {
+    width: 100%;
+}
+
+.about-content {
+    padding: 2rem 1.5rem;
+    text-align: center;
+}
+
+.about-title {
+    margin: 2rem 0 1.5rem;
+    font-size: 2rem;
+    font-weight: 900;
+    text-wrap: pretty;
+}
+
+.link-learn-more {
+    margin: 1.5rem 0;
+    padding: 0 .25rem;
+    font-family: var(--font-title);
+    font-weight: 900;
+    font-size: 1rem;
+    color: var(--clr-text-dark);
+    text-transform: uppercase;
+    position: relative;
+}
+
+.link-learn-more::after {
+    content: " ";
+    height: .5rem;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    bottom: .15rem;
+    right: 0;
+    background-color: hsla(51, 100%, 68%, .5);
+    border-radius: 1rem;
+}
+
+.audience .link-learn-more::after {
+    background-color: hsla(7, 99%, 70%, .3);
+}
+
+.link-learn-more span {
+    position: relative;
+    z-index: 2;
 }
