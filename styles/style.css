@@ -238,26 +238,24 @@ header {
     position: absolute;
     top: 5rem;
     right: .7rem;
-    padding: 2.25rem;
     background-color: var(--clr-white);
     text-align: center;
-    opacity: 1;
-    transition: opacity .5s;
-}
 
-/* TODO: opacity transition not working from data-visible: true to false (???) */
-
-.header-navbar-nav[data-visible="false"] {
     height: 0;
     padding: 0;  
     opacity: 0;
+    transition: .3s;
+}
+
+.header-navbar-nav[data-visible="false"] {
     overflow: hidden;
 }
 
-.header-navbar-nav[data-visible="true"] {  
+.header-navbar-nav[data-visible="true"] {
+    height: 19.5rem;
+    padding: 2.25rem;
     opacity: 1;
 }
-
 
 /* nav container arrow */
 .header-navbar-nav::before {
@@ -277,6 +275,14 @@ header {
     padding: .75rem 2rem;
     font-size: 1.25rem;
     color: var(--clr-grayish-blue);
+    opacity: 1;
+    transform: translateY(0);
+    transition: .6s;
+}
+
+.header-navbar-nav[data-visible="false"] .nav-link {
+    transform: translateY(-2rem);
+    opacity: 0;
 }
 
 .nav-link-contact {
@@ -304,3 +310,6 @@ header {
 .header-arrow {
     margin: 3rem auto 0;
 }
+
+
+
