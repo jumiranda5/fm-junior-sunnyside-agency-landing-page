@@ -1,0 +1,306 @@
+/* --------------------------------------------------------
+    RESET https://andy-bell.co.uk/a-more-modern-css-reset/
+----------------------------------------------------------- */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Prevent font size inflation */
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+    margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+    line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+    text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+    color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+    font: inherit;
+}
+
+
+/* custom */
+
+span, a { display: inline-block; }
+
+li { list-style: none; }
+
+a { text-decoration: none; }
+
+button { 
+    cursor: pointer; 
+    background: none;
+    border: none;
+}
+
+
+/* ============================================
+    BASE
+=============================================== */
+
+@font-face {
+    font-family: Barlow;
+    src: url(../fonts/Barlow-SemiBold.ttf);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Fraunces;
+    src: url(../fonts/Fraunces_9pt_Soft-Bold.ttf);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: Fraunces;
+    src: url(../fonts/Fraunces_9pt_Soft-Black.ttf);
+    font-weight: 900;
+}
+
+:root {
+    --font-paragraph: Barlow;
+    --font-title: Fraunces;
+
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-yellow: hsl(51, 100%, 49%);
+    --clr-grayish-blue: hsl(232, 10%, 55%);
+    --clr-text-dark: hsl(212, 27%, 19%);
+    --clr-text-main: hsl(213, 9%, 39%);
+    --clr-text-design: hsl(167, 40%, 24%);
+    --clr-text-photography: hsl(198, 62%, 26%);
+    --clr-footer: hsl(168, 34%, 41%);
+
+    --width-wrapper: 87%;
+}
+
+body {
+    font-size: 1.125rem;
+    font-family: var(--font-paragraph);
+    color: var(--clr-text-main);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-title);
+    font-weight: 700;
+    color: var(--clr-text-dark);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+.flex {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.flex-center {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+
+/* ============================================
+    MENU TOGGLE BUTTON
+=============================================== */
+
+.menu-button {
+    z-index: 10;
+    width: 2.5rem;
+    aspect-ratio: 1;
+}
+  
+.menu-icon { 
+    gap: 20%;
+    width: 1.5rem;
+    aspect-ratio: 1;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+}
+  
+.menu-icon-line {
+    background-color: var(--clr-white);
+    width: 100%;
+    height: 10%;
+    opacity: 1;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+  
+.menu-button[aria-expanded="true"] .menu-icon-line:nth-child(1) {
+    transform: translateY(300%) rotate(135deg);
+}
+  
+.menu-button[aria-expanded="true"] .menu-icon-line:nth-child(2) {
+    opacity: 0;
+    width: 0%;
+}
+  
+.menu-button[aria-expanded="true"] .menu-icon-line:nth-child(3) {
+    transform: translateY(-300%) rotate(-135deg);
+}
+
+
+/* ============================================
+    HEADER
+=============================================== */
+
+header {
+    display: grid;
+    align-content: start;
+    justify-items: center;
+    color: var(--clr-white);
+}
+
+.header-image,
+.header-content {
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+}
+
+.header-content {
+    width: calc(var(--width-wrapper) + 1rem);
+}
+
+.header-navbar {
+    position: relative;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
+
+.header-logo {
+    width: 8rem;
+    margin-left: .5rem;
+}
+
+.header-navbar-nav {
+    flex-wrap: nowrap;
+    z-index: 10;
+    width: calc(100% - 1rem);
+    position: absolute;
+    top: 5rem;
+    right: .7rem;
+    padding: 2.25rem;
+    background-color: var(--clr-white);
+    text-align: center;
+    opacity: 1;
+    transition: opacity .5s;
+}
+
+/* TODO: opacity transition not working from data-visible: true to false (???) */
+
+.header-navbar-nav[data-visible="false"] {
+    height: 0;
+    padding: 0;  
+    opacity: 0;
+    overflow: hidden;
+}
+
+.header-navbar-nav[data-visible="true"] {  
+    opacity: 1;
+}
+
+
+/* nav container arrow */
+.header-navbar-nav::before {
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: -1.5rem;
+    right: 0;
+    z-index: 1;
+    border: medium solid var(--clr-white);
+    border-width: 1.5rem 1.5rem 1.5rem 0;
+    border-color: transparent var(--clr-white) transparent transparent;
+}
+
+.nav-link {
+    padding: .75rem 2rem;
+    font-size: 1.25rem;
+    color: var(--clr-grayish-blue);
+}
+
+.nav-link-contact {
+    width: fit-content;
+    margin: 1.25rem auto 0;
+    padding: 1rem 2rem;
+    background-color: var(--clr-yellow);
+    border-radius: 100vw;
+    color: var(--clr-text-dark);
+    font-size: 1rem;
+    font-family: var(--font-title);
+    text-transform: uppercase;
+}
+
+.header-title {
+    margin-top: 5rem;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: .18em;
+    line-height: 1.2;
+    color: var(--clr-white);
+}
+
+.header-arrow {
+    margin: 3rem auto 0;
+}

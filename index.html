@@ -2,35 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+    <link rel="stylesheet" href="./styles/style.css">
     <title>Frontend Mentor | Sunnyside agency landing page</title>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
-        .attribution { font-size: 11px; text-align: center; }
-        .attribution a { color: hsl(228, 45%, 44%); }
-    </style>
+    <script src="./scripts/script.js" defer></script>
 </head>
 <body>
 
     <header>
-        <picture>
+
+        <picture class="header-image">
             <source media="(min-width: 768px)" srcset="./images/desktop/image-header.jpg">
             <img src="./images/mobile/image-header.jpg" alt="">
         </picture>
-        <div class="header-navbar">
-            <img src="./images/logo.svg" alt="Sunnyside logo">
-            <nav id="header-nav" class="header-navbar-nav">
-                <a href="#" class="nav-link">About</a>
-                <a href="#" class="nav-link">Services</a>
-                <a href="#" class="nav-link">Projects</a>
-                <a href="#" class="nav-link">Contact</a>
-          </nav>
+        
+        <div class="header-content">
+            <div class="header-navbar flex-center">
+                <img class="header-logo" src="./images/logo.svg" alt="Sunnyside logo">
+                <button
+                    class="menu-button flex-center"
+                    aria-controls="header-nav"
+                    aria-expanded="false">
+                    <span id="menu-text" class="sr-only">Menu</span>
+                    <span class="menu-icon flex-center">
+                        <span class="menu-icon-line"></span>
+                        <span class="menu-icon-line"></span>
+                        <span class="menu-icon-line"></span>
+                    </span>
+                </button>
+                <nav id="header-nav" class="header-navbar-nav flex" data-visible="false">
+                    <a href="#" class="nav-link">About</a>
+                    <a href="#" class="nav-link">Services</a>
+                    <a href="#" class="nav-link">Projects</a>
+                    <a href="#" class="nav-link nav-link-contact">Contact</a>
+              </nav>
+            </div>
+            
+            <h1 class="header-title">We are creatives</h1>
+            <img class="header-arrow" src="./images/icon-arrow-down.svg" alt="">
         </div>
-        <h1 class="header-title">We are creatives</h1>
     </header>
 
     <section class="about">
