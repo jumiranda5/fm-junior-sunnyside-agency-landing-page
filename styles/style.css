@@ -122,8 +122,6 @@ button {
     --clr-text-design: hsl(167, 40%, 24%);
     --clr-text-photography: hsl(198, 62%, 26%);
     --clr-footer: hsl(168, 34%, 41%);
-
-    --width-wrapper: 87%;
 }
 
 body {
@@ -321,7 +319,7 @@ header {
 
 /* DESKTOP */
 
-@media (min-width: 48rem) {
+@media (min-width: 60rem) {
     
     .menu-button {
         display: none;
@@ -390,6 +388,12 @@ header {
     width: 100%;
 }
 
+.about-image img {
+    object-fit: cover;
+    object-position: center;
+    min-width: 100%;
+}
+
 .about-content {
     padding: 2rem 1.5rem;
     text-align: center;
@@ -432,4 +436,43 @@ header {
 .link-learn-more span {
     position: relative;
     z-index: 2;
+}
+
+@media (min-width:60rem) {
+    
+    .about {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-content.brand {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+    .about-image.brand {
+        grid-column: 2 / -1;
+    }
+    
+    .about-content {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 3rem;
+        text-align: start;
+    }
+
+    .about-title,
+    .about-text { max-width: 28rem; }
+    
+    .about-title {
+        margin: 0 0 1.5rem;
+        font-size: 2.5rem;
+    }
+
+    .link-learn-more {
+        align-self: start;
+    }
+
 }
