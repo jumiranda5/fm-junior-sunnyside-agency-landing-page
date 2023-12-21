@@ -121,7 +121,8 @@ button {
     --clr-text-main: var(--clr-dark-grayish-blue);
     --clr-text-design: hsla(167, 40%, 24%, .85);
     --clr-text-photography: hsla(198, 62%, 26%, .85);
-    --clr-footer: hsl(168, 34%, 41%);
+    --clr-footer: hsl(168, 48%, 68%);
+    --clr-footer-text: #2C7566;
 }
 
 body {
@@ -591,4 +592,75 @@ header {
         max-width: 75rem;
     }
 
+}
+
+
+/* ============================================
+    DECORATIVE IMAGES
+=============================================== */
+
+.decorative-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 60rem) {
+    .decorative-images {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+/* ============================================
+    FOOTER
+=============================================== */
+
+footer {
+    padding: 4rem 0 0;
+    text-align: center;
+    background-color: var(--clr-footer);
+    color: var(--clr-footer-text);
+}
+
+.footer-logo path,
+.social-links svg path {
+    fill: var(--clr-footer-text);
+}
+
+.footer-logo {
+    width: 10rem;
+}
+
+.footer-links,
+.social-links {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.footer-links {
+    gap: 3.5rem;
+    margin-top: 2rem;
+}
+
+.footer-links a {
+    color: var(--clr-footer-text);
+}
+
+.social-links {
+    gap: 1.5rem;
+    margin-top: 4rem;
+}
+
+.attribution {
+    margin-top: 4rem;
+    padding: 1rem;
+    background-color: var(--clr-footer-text);
+    color: var(--clr-footer);
+    font-size: .75rem;
+}
+
+.attribution a {
+    text-decoration: underline;
+    color: rgb(174, 182, 251);
 }
