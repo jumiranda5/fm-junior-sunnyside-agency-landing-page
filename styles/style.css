@@ -526,3 +526,69 @@ header {
     }
 
 }
+
+
+/* ============================================
+    TESTIMONIALS
+=============================================== */
+
+.testimonials {
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.testimonials-title {
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: .3em;
+}
+
+.testimonials-container {
+    max-width: 30rem;
+    margin: 0 auto;
+}
+
+.testimonial {
+    padding: 1.5rem;
+}
+
+.testimonial-avatar {
+    width: 4.625rem;
+    margin: 0 auto;
+    border-radius: 100%;
+}
+
+.testimonial-text {
+    margin: 2rem 0;
+    color: hsla(212, 27%, 19%, .75);
+}
+
+.testimonial-name {
+    color: var(--clr-very-dark-desaturated-blue);
+}
+
+.testimonial-position {
+    margin-top: .5rem;
+    font-size: 1rem;
+}
+
+@media (min-width: 60rem) {
+
+    .testimonials {
+        padding: 9rem 0;
+        text-align: center;
+    }
+
+    .testimonials-title {
+        margin-bottom: 3.5rem;
+        font-size: 1.25rem;
+    }
+    
+    .testimonials-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 75rem;
+    }
+
+}
